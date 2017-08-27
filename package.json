@@ -1,0 +1,30 @@
+{
+  "name": "lodash-joe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "郑俊鑫 <18810544291@163.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.26.0",
+    "webpack": "^3.5.5"
+  },
+  "scripts": {
+    "test": "ava",
+    "dev": "webpack -w",
+    "pro": "NODE_ENV=production webpack"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}
