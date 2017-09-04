@@ -11,11 +11,14 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
     "babel-register": "^6.26.0",
+    "coveralls": "^2.13.1",
     "nodemon": "^1.11.0",
+    "nyc": "^11.1.0",
     "webpack": "^3.5.5"
   },
   "scripts": {
-    "test": "ava",
+    "test": "nyc ava",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "dev": "webpack -w",
     "pro": "NODE_ENV=production webpack",
     "nodemon": "nodemon --exec babel-node"
