@@ -25,3 +25,12 @@ export const isBoolean = boolean => boolean === true || boolean === false || Obj
 export const isArray = Array.isArray || function(array) {
     return Object.prototype.toString.call(array) === '[object Array]'
 }
+
+export const nth = (array, n) => {
+    let result = undefined
+    if (array && array.length) {
+        const index = ~~n
+        result = array[index < 0 ? (array.length + index) : index]
+    }
+    return result
+}
