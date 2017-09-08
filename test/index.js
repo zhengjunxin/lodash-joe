@@ -1,2 +1,5 @@
 import './sum.test.js'
 import './isBoolean.test.js'
+import './isArray.test.js'
+import './nth.test.js'
+import './parseUrl.test.js'

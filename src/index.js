@@ -34,3 +34,19 @@ export const nth = (array, n) => {
     }
     return result
 }
+
+export const parseUrl = url => {
+    // 注意是 (\w+) 才能把协议分成一组
+    // (\w)+ 会只把一个字符分成一组
+    const array = url.match(/(\w+):\/\/([\w.]+)(\/\S*)/)
+    let result = null
+    if (array) {
+        result = {
+            matchedUrl: array[0],
+            protocol: array[1],
+            host: array[2],
+            path: array[3]
+        }
+    }
+    return result
+}

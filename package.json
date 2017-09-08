@@ -17,6 +17,7 @@
     "webpack": "^3.5.5"
   },
   "scripts": {
+    "ava": "ava --verbose",
     "test": "nyc ava",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "dev": "webpack -w",
