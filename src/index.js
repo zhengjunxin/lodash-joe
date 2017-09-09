@@ -50,3 +50,32 @@ export const parseUrl = url => {
     }
     return result
 }
+
+export function throttle(func, wait, options = {}) {
+    let timeId, args
+    let previous = 0
+
+    return function() {
+        args = arguments
+        const now = Date.now()
+
+        // 第一次调用，但 leading 被禁止，则在 wait 后执行
+        if (!previous && options.leading === false) {
+            previous = now
+        }
+        const remain = wait - (now - previous)
+
+        if (remain <= 0) {
+            previous = now
+            func.apply(null, args)
+        }
+        else if (!timeId && options.trailing !== false) {
+            timeId = setTimeout(function() {
+                // 进入 !previous && options.leading === false 的条件
+                previous = options.leading === false ? 0 : Date.now()
+                timeId = null
+                func.apply(null, args)
+            }, remain)
+        }
+    }
+}
