@@ -26,6 +26,8 @@ export const isArray = Array.isArray || function(array) {
     return Object.prototype.toString.call(array) === '[object Array]'
 }
 
+export const isString = string => typeof string === 'string' || Object.prototype.toString.call(string) === '[object String]'
+
 export const nth = (array, n) => {
     let result = undefined
     if (array && array.length) {
