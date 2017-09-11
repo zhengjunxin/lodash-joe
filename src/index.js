@@ -81,3 +81,19 @@ export function throttle(func, wait, options = {}) {
         }
     }
 }
+
+export const debounce = (func, wait, immediate) => {
+    let timeId, args
+    return function() {
+        args = arguments
+
+        if (timeId) {
+            clearTimeout(timeId)
+        }
+
+        timeId = setTimeout(function() {
+            timeId = null
+            func.apply(null, args)
+        }, wait)
+    }
+}
