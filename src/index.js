@@ -97,3 +97,5 @@ export const debounce = (func, wait, immediate) => {
         }, wait)
     }
 }
+
+export const trim = str => String(str).replace(/^\s+|\s+$/g, '')
