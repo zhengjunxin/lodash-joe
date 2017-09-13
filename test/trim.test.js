@@ -13,18 +13,26 @@ test('trim left and right', t => {
     t.is(trim('  joe  '), 'joe')
 })
 
-test("do not trim space in between", t => {
+test('do not trim space in between', t => {
     t.is(trim('  j o e  '), 'j o e')
 })
 
-test("trim number", t => {
+test('trim number', t => {
     t.is(trim(1), '1')
 })
 
-test("trim boolean", t => {
+test('trim boolean', t => {
     t.is(trim(true), 'true')
 })
 
-test("trim object", t => {
+test('trim object', t => {
     t.is(trim({}), '[object Object]')
+})
+
+test('trim undefined', t => {
+    t.is(trim(undefined), 'undefined')
+})
+
+test('trim null', t => {
+    t.is(trim(null), 'null')
 })
