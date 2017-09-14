@@ -99,3 +99,12 @@ export const debounce = (func, wait, immediate) => {
 }
 
 export const trim = str => String(str).replace(/^\s+|\s+$/g, '')
+
+export const formatTime = num => {
+    let result = ''
+    const type = typeof num
+    if ((type === 'number' || type === 'string') && Number.isInteger(+num)) {
+        result = num > 9 ? '' + num : '0' + num
+    }
+    return result
+}
