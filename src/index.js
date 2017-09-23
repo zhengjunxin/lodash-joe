@@ -108,3 +108,15 @@ export const formatTime = num => {
     }
     return result
 }
+
+export const array2hash = (array, transformKey, transformValue = item => item) => {
+    const result = {}
+    if (array && array.length) {
+        for (let i = 0; i < array.length; i++) {
+            const item = array[i]
+            const key = transformKey(item, i, array)
+            result[key] = transformValue(item, i, array)
+        }
+    }
+    return result
+}
