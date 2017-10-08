@@ -120,3 +120,16 @@ export const array2hash = (array, transformKey, transformValue = item => item) =
     }
     return result
 }
+
+export const purgeObject = object => {
+    const result = {}
+    let key
+    object = Object(object)
+
+    for (key in object) {
+        if (object.hasOwnProperty(key) && object[key] != null && object[key] !== '') {
+            result[key] = object[key]
+        }
+    }
+    return result
+}
