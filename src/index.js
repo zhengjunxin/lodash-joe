@@ -121,13 +121,13 @@ export const array2hash = (array, transformKey, transformValue = item => item) =
     return result
 }
 
-export const purgeObject = object => {
+export const purgeObject = (object, fn = (key, value) => value != null && value !== '') => {
     const result = {}
     let key
     object = Object(object)
 
     for (key in object) {
-        if (object.hasOwnProperty(key) && object[key] != null && object[key] !== '') {
+        if (object.hasOwnProperty(key) && fn(key, object[key])) {
             result[key] = object[key]
         }
     }
