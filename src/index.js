@@ -133,3 +133,15 @@ export const purgeObject = (object, fn = (key, value) => value != null && value 
     }
     return result
 }
+
+export const seq = (array, index = 0) => {
+    return array[index]().catch(error => {
+        index++
+        if (index < array.length) {
+            return seq(array, index)
+        }
+        else {
+            throw error
+        }
+    })
+}
