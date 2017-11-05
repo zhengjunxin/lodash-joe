@@ -134,4 +134,8 @@ export const purgeObject = (object, fn = (key, value) => value != null && value 
     return result
 }
 
-export const seq = (array, index = 0) => array[index]().catch(error => ++index < array.length ? seq(array, index) : Promise.reject(error))
+export const seq = (array, data, index = 0, count = array.length) => {
+    return array[index % array.length](data).catch(error => {
+        return --count > 0 ? seq(array, data, index + 1, count) : Promise.reject(error)
+    })
+}
