@@ -139,3 +139,30 @@ export const seq = (array, data, index = 0, count = array.length) => {
         return --count > 0 ? seq(array, data, index + 1, count) : Promise.reject(error)
     })
 }
+
+// step access table
+// loop the table to find the which step the input is
+/**
+ * 
+ * @param {Object} table A object which key for the step, and value for the data
+ * @param {number} number step
+ */
+export const stepTable = (table, number) => {
+    // init the default output
+    const defaultOutput = undefined;
+    // bailout if number isn't number type
+    if (typeof number !== 'number') {
+        return defaultOutput;
+    }
+    // gather all steps
+    const steps = Object.keys(table);
+    // loop the steps, and compare with the number
+    for (let i = 0; i < steps.length; i++) {
+        // if number less than the step, return the data
+        if (number < steps[i]) {
+            return table[steps[i]];
+        }
+    }
+    // if can not find the step,return defaultOupout
+    return defaultOutput;
+}
