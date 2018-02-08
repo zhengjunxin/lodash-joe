@@ -1,3 +1,5 @@
+import SP  from './SearchParams'
+
 export const sum = array => {
     let result
 
@@ -166,3 +168,5 @@ export const stepTable = (table, number) => {
     // if can not find the step,return defaultOupout
     return defaultOutput;
 }
+
+export const SearchParams = SP
